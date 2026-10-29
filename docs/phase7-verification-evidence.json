@@ -1,0 +1,45 @@
+{
+  "verified_date_local": "2026-10-29",
+  "backend": {
+    "passed": 280,
+    "failed": 0,
+    "skipped": 0,
+    "prior_phase_tests": 224,
+    "automation_tests": 56
+  },
+  "frontend": {
+    "passed": 51,
+    "failed": 0,
+    "skipped": 0
+  },
+  "browser": {
+    "passed": 8,
+    "failed": 0,
+    "skipped": 0,
+    "engine": "Chromium",
+    "widths": [
+      1280,
+      390
+    ]
+  },
+  "production_build_and_types": "passed",
+  "ruff_lint_and_format": "passed",
+  "prettier": "passed",
+  "schema": "0006_automation; no drift",
+  "populated_migration_roundtrip": "passed",
+  "npm_reported_vulnerabilities": 0,
+  "python_packages_audited": 45,
+  "python_reported_vulnerabilities": 0,
+  "python_audit_skipped": 0,
+  "in_app_delivery": "verified in isolated PostgreSQL/browser workflows",
+  "smtp": "protocol and adapter mocks only; real provider unconfigured",
+  "live_source_sync": "actual bounded page, 20 accepted and inserted, 0 errors",
+  "stored_genuine_jobs": 100,
+  "eligible_genuine_jobs": 20,
+  "original_jobs_preserved": 80,
+  "genuine_personalized_notification_delivery": false,
+  "source_schedules_enabled": false,
+  "email_configured": false,
+  "phase7_local_acceptance": "passed with disclosed external-delivery and supervision limitations",
+  "phase8_started": false
+}

@@ -1,0 +1,40 @@
+{
+  "profile_kind": "explicitly synthetic temporary QA; not user qualifications",
+  "production_jobs_synthetic": false,
+  "source": "genuine persisted Himalayas records",
+  "ranking_version": "evidence-baseline-1.0.1+d5546bafea1c",
+  "first_refresh": {
+    "id": "662d44db-0874-4c46-92fd-c3a6a4e18fb7",
+    "ranking_version": "evidence-baseline-1.0.1+d5546bafea1c",
+    "status": "complete",
+    "considered": 80,
+    "calculated": 80,
+    "reused": 0,
+    "failed": 0,
+    "has_more": false,
+    "next_job_id": null,
+    "errors": [],
+    "started_at": "2026-10-28T03:45:56.623414Z",
+    "finished_at": "2026-10-28T03:45:57.083272Z"
+  },
+  "immediate_repeat": {
+    "id": "60b352eb-fbeb-42d3-a86d-2698d308f8a8",
+    "ranking_version": "evidence-baseline-1.0.1+d5546bafea1c",
+    "status": "complete",
+    "considered": 80,
+    "calculated": 0,
+    "reused": 80,
+    "failed": 0,
+    "has_more": false,
+    "next_job_id": null,
+    "errors": [],
+    "started_at": "2026-10-28T03:45:57.123066Z",
+    "finished_at": "2026-10-28T03:45:57.200354Z"
+  },
+  "available_jobs": 80,
+  "current_results": 80,
+  "returned_recommendations": 80,
+  "assessed_with_scores": 70,
+  "unknown_scores": 10,
+  "no_browser_errors": true
+}

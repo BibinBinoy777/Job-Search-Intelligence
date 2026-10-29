@@ -1,0 +1,63 @@
+[
+  {
+    "skills": [
+      "python"
+    ],
+    "title": "The Python Tutorial",
+    "provider": "Python documentation",
+    "url": "https://docs.python.org/3/tutorial/",
+    "verified_on": "2026-10-29",
+    "verification_source": "https://docs.python.org/3/tutorial/",
+    "verification_evidence": "Opened the official page; identity and introduction checked. Covers Python language basics for programmers new to Python, rather than complete programming beginners.",
+    "level": "Introductory Python for people with some programming knowledge."
+  },
+  {
+    "skills": [
+      "postgresql",
+      "sql"
+    ],
+    "title": "PostgreSQL Part I: Tutorial",
+    "provider": "PostgreSQL Global Development Group",
+    "url": "https://www.postgresql.org/docs/current/tutorial.html",
+    "verified_on": "2026-10-29",
+    "verification_source": "https://www.postgresql.org/docs/current/tutorial.html",
+    "verification_evidence": "Opened the official tutorial; checked introduction and table of contents covering relational concepts, SQL queries, joins, aggregates, foreign keys and transactions.",
+    "level": "Introductory PostgreSQL and SQL; select relevant exercises if already experienced."
+  },
+  {
+    "skills": [
+      "typescript"
+    ],
+    "title": "The TypeScript Handbook",
+    "provider": "TypeScript documentation",
+    "url": "https://www.typescriptlang.org/docs/handbook/intro.html",
+    "verified_on": "2026-10-29",
+    "verification_source": "https://www.typescriptlang.org/docs/handbook/intro.html",
+    "verification_evidence": "Opened official handbook introduction and navigation; identity and TypeScript language topics checked. JavaScript background is recommended by the provider.",
+    "level": "TypeScript language overview; investigate JavaScript prerequisites first."
+  },
+  {
+    "skills": [
+      "react"
+    ],
+    "title": "React Quick Start",
+    "provider": "React documentation",
+    "url": "https://react.dev/learn",
+    "verified_on": "2026-10-29",
+    "verification_source": "https://react.dev/learn",
+    "verification_evidence": "Opened the official Quick Start; checked learning topics: components, markup, conditions/lists, events and shared state.",
+    "level": "React introduction; use selected topics for further development if already experienced."
+  },
+  {
+    "skills": [
+      "docker"
+    ],
+    "title": "Get started with Docker",
+    "provider": "Docker documentation",
+    "url": "https://docs.docker.com/get-started/",
+    "verified_on": "2026-10-29",
+    "verification_source": "https://docs.docker.com/get-started/",
+    "verification_evidence": "Opened the official getting-started index; checked installation links and the containerized-application tutorial destination category.",
+    "level": "Getting-started index; choose relevant installation and container exercises."
+  }
+]

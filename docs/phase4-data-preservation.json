@@ -1,0 +1,85 @@
+{
+  "verification": "All 17 monitored original table counts and complete-row SHA-256 inventories match the Phase 4 starting baseline after cleanup",
+  "original_tables": {
+    "users": {
+      "count": 0,
+      "original_rows_unchanged": true
+    },
+    "candidate_profiles": {
+      "count": 0,
+      "original_rows_unchanged": true
+    },
+    "candidate_skills": {
+      "count": 0,
+      "original_rows_unchanged": true
+    },
+    "candidate_experience": {
+      "count": 0,
+      "original_rows_unchanged": true
+    },
+    "candidate_education": {
+      "count": 0,
+      "original_rows_unchanged": true
+    },
+    "candidate_preferences": {
+      "count": 0,
+      "original_rows_unchanged": true
+    },
+    "jobs": {
+      "count": 80,
+      "original_rows_unchanged": true
+    },
+    "job_skills": {
+      "count": 0,
+      "original_rows_unchanged": true
+    },
+    "saved_jobs": {
+      "count": 0,
+      "original_rows_unchanged": true
+    },
+    "applications": {
+      "count": 0,
+      "original_rows_unchanged": true
+    },
+    "application_events": {
+      "count": 0,
+      "original_rows_unchanged": true
+    },
+    "job_sources": {
+      "count": 1,
+      "original_rows_unchanged": true
+    },
+    "ingestion_runs": {
+      "count": 4,
+      "original_rows_unchanged": true
+    },
+    "ingestion_records": {
+      "count": 160,
+      "original_rows_unchanged": true
+    },
+    "job_requirement_analyses": {
+      "count": 80,
+      "original_rows_unchanged": true
+    },
+    "match_results": {
+      "count": 0,
+      "original_rows_unchanged": true
+    },
+    "matching_refreshes": {
+      "count": 0,
+      "original_rows_unchanged": true
+    }
+  },
+  "temporary_synthetic_QA_accounts_removed": 10,
+  "cleanup_scope": "Exact recorded QA emails and their dependent private records only; no original user/source/job rows removed",
+  "genuine_jobs_preserved": 80,
+  "source_description_and_all_original_job_fields_preserved": true,
+  "original_matching_analysis_cache_preserved": 80,
+  "migration_additions_do_not_modify_original_rows": true,
+  "saved_searches_after_QA_cleanup": 0,
+  "availability_counts_at_final_verification": {
+    "stored": 80,
+    "stale_verification": 40,
+    "elapsed_deadlines": 0
+  }
+}

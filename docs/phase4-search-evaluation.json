@@ -1,0 +1,93 @@
+{
+  "dataset": "Existing genuinely stored available jobs; no inserted fixtures",
+  "genuine_available_jobs": 40,
+  "genuine_stored_jobs": 80,
+  "outside_default_discovery": 40,
+  "explicit_historical_view_count_verified": 80,
+  "case_results": [
+    {
+      "case": "partial-title",
+      "expected_count": 1,
+      "actual_count": 1,
+      "exact_set_agreement": true
+    },
+    {
+      "case": "employer",
+      "expected_count": 1,
+      "actual_count": 1,
+      "exact_set_agreement": true
+    },
+    {
+      "case": "source-required-or-preferred-skill",
+      "expected_count": 6,
+      "actual_count": 6,
+      "exact_set_agreement": true
+    },
+    {
+      "case": "combined-title-mode-employment",
+      "expected_count": 1,
+      "actual_count": 1,
+      "exact_set_agreement": true
+    },
+    {
+      "case": "no-results",
+      "expected_count": 0,
+      "actual_count": 0,
+      "exact_set_agreement": true
+    },
+    {
+      "case": "missing-assessments-not-zero",
+      "expected_count": 0,
+      "actual_count": 0,
+      "exact_set_agreement": true
+    },
+    {
+      "case": "known-publication-date",
+      "expected_count": 0,
+      "actual_count": 0,
+      "exact_set_agreement": true
+    },
+    {
+      "case": "USD-annual-salary-only",
+      "expected_count": 13,
+      "actual_count": 13,
+      "exact_set_agreement": true
+    }
+  ],
+  "lexical_specification_metrics": {
+    "definition": "Exact normalized title as specification relevance; not human job relevance",
+    "cutoff": 1,
+    "precision_at_cutoff": 1.0,
+    "recall_exact_titles_at_cutoff": 1.0
+  },
+  "stable_unique_paginated_jobs": 40,
+  "local_service_latency_ms": {
+    "runs": 7,
+    "median": 90.29,
+    "maximum": 191.11,
+    "minimum": 77.96
+  },
+  "query_plan": {
+    "planning_ms": 2.193,
+    "execution_ms": 26.457,
+    "returned_rows": 1.0,
+    "node_types": [
+      "Aggregate",
+      "Function Scan",
+      "Index Only Scan",
+      "Index Scan",
+      "Limit",
+      "Memoize",
+      "Nested Loop",
+      "Seq Scan",
+      "Sort"
+    ]
+  },
+  "independent_human_relevance_labels": false,
+  "limitations": [
+    "Tiny one-provider snapshot; timings are local observations, not a load benchmark.",
+    "Rules test filter and lexical-order correctness, not candidate suitability or market demand.",
+    "Closed/unknown/missing-field and match-invalidation edge cases are covered in isolated PostgreSQL tests when absent in this snapshot.",
+    "Phase 3 matching quality remains independently unvalidated."
+  ]
+}

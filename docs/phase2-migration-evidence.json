@@ -1,0 +1,17 @@
+{
+  "from_revision": "0001_foundation",
+  "to_revision": "0002_discovery",
+  "isolated_database_suffix": "_test",
+  "preserved_row_counts": {
+    "users": 1,
+    "candidate_profiles": 1,
+    "job_sources": 1,
+    "jobs": 1,
+    "saved_jobs": 1,
+    "applications": 1,
+    "application_events": 1
+  },
+  "existing_user_became_operator": false,
+  "application_note_preserved": true,
+  "alembic_check": "No new upgrade operations detected"
+}

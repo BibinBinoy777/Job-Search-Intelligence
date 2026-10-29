@@ -1,0 +1,22 @@
+{
+  "from_revision": "0003_matching",
+  "to_revision": "0004_search",
+  "isolated_database_suffix": "_test",
+  "preserved_counts": {
+    "users": 1,
+    "candidate_profiles": 1,
+    "job_sources": 1,
+    "jobs": 1,
+    "saved_jobs": 1,
+    "applications": 1,
+    "application_events": 1,
+    "ingestion_runs": 1,
+    "ingestion_records": 1,
+    "job_requirement_analyses": 1,
+    "match_results": 1
+  },
+  "source_text_and_application_note_preserved": true,
+  "legacy_match_retained_with_nullable_context": true,
+  "new_saved_searches": 0,
+  "schema_check": "passed"
+}

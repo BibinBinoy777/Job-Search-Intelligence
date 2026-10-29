@@ -1,0 +1,30 @@
+{
+  "synthetic_temporary_qa_profiles": true,
+  "no_synthetic_jobs_inserted": true,
+  "genuine_job_count": 80,
+  "current_discovery_job_count": 40,
+  "outside_current_discovery": 40,
+  "refresh": {
+    "id": "125f3232-8cc2-4cda-95df-9876674e9f3a",
+    "ranking_version": "evidence-baseline-1.0.1+d5546bafea1c",
+    "status": "complete",
+    "considered": 40,
+    "calculated": 40,
+    "reused": 0,
+    "failed": 0,
+    "has_more": false,
+    "next_job_id": null,
+    "errors": [],
+    "started_at": "2026-10-28T10:22:47.948175Z",
+    "finished_at": "2026-10-28T10:22:48.348689Z"
+  },
+  "assessable_search_results": 37,
+  "stable_unique_first_two_pages": 24,
+  "compared_genuine_jobs": 2,
+  "saved_job_count": 1,
+  "tracked_application_count": 1,
+  "saved_search_created_and_reloaded": true,
+  "cross_candidate_access_rejected": true,
+  "no_page_errors": true,
+  "mobile_document_overflow": false
+}

@@ -1,0 +1,63 @@
+{
+  "observed_date_local": "2026-10-29",
+  "npm_audit": {
+    "dependencies": 206,
+    "reported_vulnerabilities": 0
+  },
+  "python_audit": {
+    "packages": 46,
+    "reported_vulnerabilities": 0,
+    "skipped": 0
+  },
+  "backend": {
+    "passed": 224,
+    "failed": 0,
+    "skipped": 0,
+    "previous_phase_tests": 187,
+    "career_tests": 37
+  },
+  "frontend": {
+    "passed": 44,
+    "failed": 0,
+    "skipped": 0,
+    "files": 6
+  },
+  "browser": {
+    "passed": 7,
+    "failed": 0,
+    "skipped": 0,
+    "previous_workflows": 6,
+    "career_workflows": 1,
+    "widths": [
+      1280,
+      390
+    ]
+  },
+  "focused_transaction_run": {
+    "passed": 3,
+    "deselected": 34,
+    "database": "isolated PostgreSQL _test"
+  },
+  "transaction_scenarios": [
+    "separate transaction inserts before population retrieval",
+    "separate committed insertion, requirement edit and closure between count and evidence reads",
+    "old response remains coherent; next request sees new committed population",
+    "actual PostgreSQL division error rolls back and closes session",
+    "zero checked-out connections and no idle-in-transaction sessions after success/failure",
+    "ordinary pooled connection restores READ COMMITTED"
+  ],
+  "career_isolation": "REPEATABLE READ set only for career overview before the first authentication query",
+  "schema": "0005_resumes, no drift, no Phase 6 migration needed",
+  "lint_types_format_build_pip_check": "passed",
+  "external_ai": "not used",
+  "runtime_resource_fetch": "not performed",
+  "learning_destinations_rechecked": 5,
+  "development_records_changed": 0,
+  "genuine_data_status": {
+    "stored_listings": 80,
+    "eligible_listings": 0,
+    "source_verification_dates_renewed": false
+  },
+  "independent_real_world_recommendation_quality": "not evaluated / not established",
+  "limitations": "Synthetic software regression and local PostgreSQL integration plus read-only genuine-data preservation, not production security certification or independent career-outcome evidence."
+}

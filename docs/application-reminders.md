@@ -1,0 +1,11 @@
+# Application reminders
+
+Create an explicit reminder for an owned tracked application, using Schedule reminder from its application panel or the reminders page. Existing date-only follow-up fields do not silently schedule notifications. Types are follow_up, interview_preparation, deadline_review, application_update and manual. No employer/interview deadline is inferred. Private notes are limited to 500 characters and excluded from notification messages/emails. At most 100 active reminders per candidate are supported.
+
+Supply a local wall time and IANA timezone. The server resolves and stores a UTC instant and retains the zone. It rejects nonexistent daylight-saving times and requires first/second occurrence for ambiguous repeated times. Past times are explicitly allowed and become due on the next worker pass. Scheduling is limited to five years ahead. The browser displays the stored instant in its recorded zone; editing converts it back to that wall time.
+
+Lifecycle: scheduled -> notified (notification queued, NOT proof of delivery), completed or cancelled. Edits create a new revision and task. Optimistic revision checks reject stale edits, and earlier revision tasks/queued deliveries are cancelled/suppressed. Complete/cancel suppresses pending delivery. Repeated processing creates one logical notification per reminder revision. A completed/cancelled reminder requires a new reminder to schedule again.
+
+Global reminder disablement retains scheduled due work, delaying checks by five minutes; channel disablement suppresses the queued channel. Re-enabling a channel does not replay a completed/suppressed delivery. Failed task processing rolls back creation and retries within the task budget, avoiding duplicated notifications. Delivery attempts and failures are inspected in notification history/operations.
+
+Withdrawn applications cancel their active reminders. Application deletion cascades reminders; surviving queued tasks safely cancel and pending notification references become null/suppressed. There is no application-delete HTTP endpoint in this phase. Application status/history and existing follow-up dates are not rewritten by reminders. Composite ownership foreign keys and API scope checks prevent attaching another candidate's application.

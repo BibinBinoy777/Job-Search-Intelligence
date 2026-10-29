@@ -1,0 +1,119 @@
+{
+  "method": "Read-only hashes of every original table projected onto its original columns",
+  "tables": {
+    "job_requirement_analyses": {
+      "rows": 80,
+      "all_original_values_preserved": true
+    },
+    "ingestion_runs": {
+      "rows": 4,
+      "all_original_values_preserved": true
+    },
+    "duplicate_candidates": {
+      "rows": 0,
+      "all_original_values_preserved": true
+    },
+    "ingestion_records": {
+      "rows": 160,
+      "all_original_values_preserved": true
+    },
+    "jobs": {
+      "rows": 80,
+      "all_original_values_preserved": true
+    },
+    "matching_refreshes": {
+      "rows": 0,
+      "all_original_values_preserved": true
+    },
+    "users": {
+      "rows": 0,
+      "all_original_values_preserved": true
+    },
+    "audit_events": {
+      "rows": 32,
+      "all_original_values_preserved": true
+    },
+    "auth_sessions": {
+      "rows": 0,
+      "all_original_values_preserved": true
+    },
+    "candidate_profiles": {
+      "rows": 0,
+      "all_original_values_preserved": true
+    },
+    "candidate_education": {
+      "rows": 0,
+      "all_original_values_preserved": true
+    },
+    "applications": {
+      "rows": 0,
+      "all_original_values_preserved": true
+    },
+    "job_sources": {
+      "rows": 1,
+      "all_original_values_preserved": true
+    },
+    "candidate_experience": {
+      "rows": 0,
+      "all_original_values_preserved": true
+    },
+    "candidate_skills": {
+      "rows": 0,
+      "all_original_values_preserved": true
+    },
+    "job_skills": {
+      "rows": 0,
+      "all_original_values_preserved": true
+    },
+    "saved_jobs": {
+      "rows": 0,
+      "all_original_values_preserved": true
+    },
+    "application_events": {
+      "rows": 0,
+      "all_original_values_preserved": true
+    },
+    "candidate_preferences": {
+      "rows": 0,
+      "all_original_values_preserved": true
+    },
+    "saved_searches": {
+      "rows": 0,
+      "all_original_values_preserved": true
+    },
+    "match_results": {
+      "rows": 0,
+      "all_original_values_preserved": true
+    },
+    "resumes": {
+      "rows": 0,
+      "all_original_values_preserved": true
+    },
+    "resume_versions": {
+      "rows": 0,
+      "all_original_values_preserved": true
+    },
+    "resume_extractions": {
+      "rows": 0,
+      "all_original_values_preserved": true
+    },
+    "resume_confirmations": {
+      "rows": 0,
+      "all_original_values_preserved": true
+    },
+    "resume_proposals": {
+      "rows": 0,
+      "all_original_values_preserved": true
+    }
+  },
+  "new_resume_tables": {
+    "resumes": 0,
+    "resume_versions": 0,
+    "resume_extractions": 0,
+    "resume_proposals": 0,
+    "resume_confirmations": 0
+  },
+  "all_original_tables_preserved": true,
+  "development_synthetic_resume_records_created": 0,
+  "database_reset": false
+}

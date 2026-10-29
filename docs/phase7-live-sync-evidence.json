@@ -1,0 +1,37 @@
+{
+  "observed_at_utc": "2026-10-29T14:04:19.429300+00:00",
+  "method": "One bounded page through existing queue_run/process_run and actual Himalayas transport. No fixture adapter.",
+  "source_id": "863ef515-3283-4f8a-854d-7da2027ee66a",
+  "run": {
+    "id": "e9ffbf38-825b-4c6f-8820-99449150d7ea",
+    "status": "limited",
+    "pages": 1,
+    "fetched": 20,
+    "accepted": 20,
+    "inserted": 20,
+    "updated": 0,
+    "unchanged": 0,
+    "duplicates": 0,
+    "rejected": 0,
+    "skipped": 0,
+    "retried": 0,
+    "errors": 0,
+    "error_code": null,
+    "attempt_number": 1
+  },
+  "original_job_ids_retained": 80,
+  "stored_jobs": 100,
+  "eligible_for_active_alerts": 20,
+  "original_records_reverified": 0,
+  "new_listing_events": 20,
+  "material_update_events": 0,
+  "availability_events": 0,
+  "notifications": 0,
+  "candidate_profiles": 0,
+  "live_notification_delivery_verified": false,
+  "real_email_delivery_verified": false,
+  "limitations": [
+    "No real candidate profile/subscription exists; no live personalized notification was generated.",
+    "Only the bounded current feed page was observed; original records not returned by that page were not reverified."
+  ]
+}

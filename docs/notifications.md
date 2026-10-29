@@ -1,0 +1,15 @@
+# Notifications and delivery
+
+In-app notifications work without external credentials. Candidate job alerts default off; reminders are explicitly created and have a separate global switch. Each candidate controls in-app, email and IANA timezone preferences. Optional email also needs per-subscription/reminder opt-in. Pending channels recheck current preferences and eligibility. Previously delivered records cannot be recalled.
+
+The logical notification and requested channel rows are committed in one transaction. In-app publication updates notification, outbox and attempt atomically. The normal notification list contains only delivered in-app records; Include history shows pending/suppressed records and accurate channel outcomes. Read/unread is private and persistent, independent of channel state. Batch read is bounded and checks ownership of every ID.
+
+Outbox states are queued, sending, retry_scheduled, delivered, suppressed, failed and uncertain. Every claim creates a numbered delivery attempt. In-app interrupted claims retry within a three-attempt budget. SMTP connection failures before sending and explicit temporary rejections can retry, at most three attempts with backoff. Authentication, unsupported TLS and permanent rejections fail visibly. The five minute delivery lease fences old workers.
+
+SMTP is disabled unless SMTP_HOST and SMTP_SENDER are configured. SMTP_PORT defaults to 587. Optional SMTP_USERNAME and secret SMTP_PASSWORD support authentication. The adapter requires STARTTLS with normal certificate checks and a ten second socket timeout. APP_BASE_URL must be an http(s) origin; production SMTP requires an HTTPS origin. Never place credentials in frontend variables or source archives. Select a controlled recipient/account before a real delivery test.
+
+Email is a generic notification with signed-in app/preferences links. It contains no job-feed descriptions, candidate profile, resume, private reminder note or authorization token. The authenticated account email is the recipient, never a supplied API recipient field. SMTP acceptance records delivered/accepted by provider, not proof of inbox placement. A stable Message-ID is a trace aid, not a provider idempotency guarantee.
+
+A connection lost during/after send may mean acceptance already occurred. Such outcomes, or expired sending leases, become uncertain and are NEVER automatically resent. An operator reviews provider records and records delivered/failed with a bounded evidence note in Data sources delivery history. This reconciliation persists an audit task; it does not resend. Failed safe database tasks may be explicitly retried from operations; unsafe or uncertain sends do not expose a blind retry control. Safe error categories are visible without raw exceptions or credentials. Operations is server-side operator-only.
+
+Local automated SMTP tests use adapters/protocol mocks and do not establish real email delivery. See the dated Phase 7 completion report for actual live configuration and evidence.

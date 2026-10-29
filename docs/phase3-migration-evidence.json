@@ -1,0 +1,19 @@
+{
+  "from_revision": "0002_discovery",
+  "to_revision": "0003_matching",
+  "disposable_database_suffix": "_test",
+  "preserved_counts": {
+    "users": 1,
+    "candidate_profiles": 1,
+    "job_sources": 1,
+    "jobs": 1,
+    "saved_jobs": 1,
+    "applications": 1,
+    "application_events": 1,
+    "ingestion_runs": 1,
+    "ingestion_records": 1
+  },
+  "application_history_and_source_fingerprint_preserved": true,
+  "alembic_check": "passed",
+  "new_matching_results": 0
+}

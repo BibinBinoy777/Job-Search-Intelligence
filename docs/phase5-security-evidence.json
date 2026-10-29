@@ -1,0 +1,60 @@
+{
+  "observed_date_local": "2026-10-28",
+  "npm_audit": {
+    "dependencies": 206,
+    "reported_vulnerabilities": 0
+  },
+  "python_audit": {
+    "packages": 46,
+    "reported_vulnerabilities": 0,
+    "skipped": 0
+  },
+  "pip_check": "No broken requirements found",
+  "backend": {
+    "passed": 187,
+    "failed": 0,
+    "skipped": 0,
+    "previous_phase_tests": 143,
+    "resume_tests": 44
+  },
+  "frontend": {
+    "passed": 36,
+    "failed": 0,
+    "skipped": 0,
+    "files": 5
+  },
+  "browser": {
+    "passed": 6,
+    "failed": 0,
+    "skipped": 0,
+    "previous_workflows": 4,
+    "resume_format_workflows": 2,
+    "database": "isolated _browser"
+  },
+  "typescript_and_production_build": "passed",
+  "ruff_lint_and_format": "passed",
+  "prettier": "passed",
+  "schema_drift_check": "passed",
+  "ocr": "not implemented / not performed",
+  "external_ai": "not implemented / not invoked",
+  "malware_scanning": "not configured / not performed",
+  "tested_boundaries": [
+    "owned metadata/download/process/evidence/review/preview/confirmation/deletion",
+    "extension MIME signature and structural checks",
+    "backend streamed upload size",
+    "path containment",
+    "password-protected PDF and active/unsafe DOCX",
+    "parser character/page/section bounds and timeout handling",
+    "exact version/segment evidence spans",
+    "unconfirmed profile immutability",
+    "conflict and duplicate handling",
+    "lost-response idempotent retry",
+    "concurrent confirmation serialization",
+    "concurrent manual profile/review revision detection",
+    "multi-record rollback",
+    "matching staleness and other-candidate isolation",
+    "upload commit cleanup",
+    "file-delete failure and final DB commit failure recovery"
+  ],
+  "limitation": "Local synthetic regression and dependency-advisory observations, not independent extraction/ranking accuracy or production certification."
+}

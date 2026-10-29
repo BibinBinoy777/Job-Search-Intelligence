@@ -1,0 +1,96 @@
+{
+  "ranking_version": "evidence-baseline-1.0.1+d5546bafea1c",
+  "dataset_version": "synthetic-rubric-1.0",
+  "independent_human_review": false,
+  "labels_authored_by": "Codex; explicit test expectations, not employer or independent human relevance judgments",
+  "purpose": "synthetic specification/rubric diagnostic; not labor-market accuracy or hiring probability",
+  "queries": [
+    {
+      "query": "builder-evidence",
+      "k": 3,
+      "ranking": [
+        "strong",
+        "aliases",
+        "transfer",
+        "preferred-only",
+        "missing-required",
+        "incidental"
+      ],
+      "metrics": {
+        "precision_at_k": 1.0,
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "title_only_metrics": {
+        "precision_at_k": 0.3333333333333333,
+        "recall_at_k": 0.3333333333333333,
+        "ndcg_at_k": 0.6294990550432896
+      }
+    },
+    {
+      "query": "unknowns-and-experience",
+      "k": 3,
+      "ranking": [
+        "salary-unknown",
+        "strong",
+        "unknown-country",
+        "senior-years"
+      ],
+      "metrics": {
+        "precision_at_k": 1.0,
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "title_only_metrics": {
+        "precision_at_k": 0.6666666666666666,
+        "recall_at_k": 0.6666666666666666,
+        "ndcg_at_k": 0.8617599676775869
+      }
+    },
+    {
+      "query": "support-transfer",
+      "k": 2,
+      "ranking": [
+        "support-strong",
+        "support-adjacent",
+        "incidental",
+        "strong"
+      ],
+      "metrics": {
+        "precision_at_k": 1.0,
+        "recall_at_k": 1.0,
+        "ndcg_at_k": 1.0
+      },
+      "title_only_metrics": {
+        "precision_at_k": 0.5,
+        "recall_at_k": 0.5,
+        "ndcg_at_k": 0.7871546029909718
+      }
+    },
+    {
+      "query": "incomplete-profile",
+      "k": 3,
+      "ranking": [],
+      "metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": null,
+        "ndcg_at_k": null
+      },
+      "title_only_metrics": {
+        "precision_at_k": 0.0,
+        "recall_at_k": null,
+        "ndcg_at_k": null
+      }
+    }
+  ],
+  "macro_metrics": {
+    "precision_at_k": 0.75,
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0
+  },
+  "title_only_macro_metrics": {
+    "precision_at_k": 0.375,
+    "recall_at_k": 0.5,
+    "ndcg_at_k": 0.759471208570616
+  }
+}

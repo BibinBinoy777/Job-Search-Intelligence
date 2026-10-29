@@ -1,0 +1,35 @@
+{
+  "version":"synthetic-rubric-1.0",
+  "labels_authored_by":"Codex; explicit test expectations, not employer or independent human relevance judgments",
+  "independent_human_review":false,
+  "label_rubric":{"0":"unrelated or explicit hard mismatch/unavailable","1":"some overlap, important required evidence absent","2":"relevant adjacent role with useful recorded evidence","3":"strong professional evidence and role alignment"},
+  "candidates":{
+    "builder":{"headline":"Software developer","summary":"Built APIs using Python and Postgres.","skills":[{"id":"s1","name":"Python"},{"id":"s2","name":"PostgreSQL"},{"id":"s3","name":"JavaScript"}],"experience":[{"id":"e1","title":"Software developer","start_date":"2023-01-01","end_date":"2025-01-01","responsibilities":"Built Python APIs with PostgreSQL.","achievements":null,"technologies":["Python","PostgreSQL"]}],"education":[{"id":"ed1","qualification":"B.Tech","field_of_study":"Computer Science"}],"qualifications":[],"certifications":[],"projects":["Python workflow automation"],"preferences":{"target_titles":["Software engineer"],"current_country":"India","locations":["India"],"work_arrangements":["remote"],"employment_types":["full_time"],"minimum_salary":null,"currency":null}},
+    "support":{"headline":"Customer support specialist","summary":null,"skills":[{"id":"s1","name":"customer support"},{"id":"s2","name":"Excel"}],"experience":[{"id":"e1","title":"Technical support representative","start_date":null,"end_date":null,"responsibilities":"Customer support and Excel reporting.","achievements":null,"technologies":["Excel"]}],"education":[],"qualifications":[],"certifications":[],"projects":[],"preferences":{"target_titles":["Customer support"],"current_country":"Canada","locations":["Canada"],"work_arrangements":["remote"],"employment_types":["full_time"]}},
+    "incomplete":{"headline":null,"summary":null,"skills":[],"experience":[],"education":[],"qualifications":[],"certifications":[],"projects":[],"preferences":{"target_titles":["Software engineer"]}}
+  },
+  "jobs":[
+    {"id":"strong","title":"Software engineer","description":"Requirements\nPython and PostgreSQL.\n2 years of professional experience.\nPreferred\nJavaScript."},
+    {"id":"aliases","title":"Software developer","description":"Must have Python and Postgres. JS is preferred."},
+    {"id":"transfer","title":"Automation engineer","description":"Required skills\nPython and workflow automation.\nResponsibilities\nBuild internal APIs."},
+    {"id":"missing-required","title":"Software engineer","description":"Required skills\nJava and Kubernetes.\nPreferred skills\nPython."},
+    {"id":"incidental","title":"Marketing manager","description":"About us\nOur old website uses Python.\nRequired skills\nSEO and Salesforce."},
+    {"id":"country-mismatch","title":"Software engineer","description":"Required skills\nPython and Postgres.","location_restrictions":["United States"]},
+    {"id":"unknown-country","title":"Software engineer","description":"Required skills\nPython.","location_restrictions":null},
+    {"id":"salary-unknown","title":"Software engineer","description":"Requirements\nPython and PostgreSQL.","salary_min":null,"salary_max":null},
+    {"id":"missing-description","title":"Software engineer","description":""},
+    {"id":"closed","title":"Software engineer","description":"Python required.","status":"closed"},
+    {"id":"unknown-availability","title":"Software engineer","description":"Python required.","status":"unknown","last_verified_at":null,"integrated":true},
+    {"id":"stale-source","title":"Software engineer","description":"Python required.","status":"unknown","last_verified_at":null,"integrated":true},
+    {"id":"support-strong","title":"Customer support","description":"Required skills\nCustomer support and Excel."},
+    {"id":"support-adjacent","title":"Operations analyst","description":"Required skills\nExcel and data analysis.\nResponsibilities\nPrepare support reports."},
+    {"id":"preferred-only","title":"Software engineer","description":"Required skills\nC++ and Java.\nNice to have\nPython and Postgres."},
+    {"id":"senior-years","title":"Senior software engineer","description":"Requirements\nPython and PostgreSQL.\n8 years of professional experience."}
+  ],
+  "queries":[
+    {"id":"builder-evidence","candidate":"builder","k":3,"grades":{"strong":3,"aliases":3,"transfer":2,"missing-required":1,"incidental":0,"country-mismatch":0,"closed":0,"preferred-only":1},"rationale":"Explicit skill/alias evidence should precede titles with unsupported mandatory skills; explicit country mismatch and closed listings are excluded."},
+    {"id":"unknowns-and-experience","candidate":"builder","k":3,"grades":{"salary-unknown":3,"unknown-country":2,"strong":3,"senior-years":1,"missing-description":0,"unknown-availability":0,"stale-source":0},"rationale":"Missing salary/country facts remain unknown; documented two years must not become eight; unavailable descriptions and integrated unknown availability are not scored recommendations."},
+    {"id":"support-transfer","candidate":"support","k":2,"grades":{"support-strong":3,"support-adjacent":2,"strong":0,"incidental":0,"closed":0},"rationale":"Support and Excel evidence can support an adjacent operations role without inventing data-analysis proficiency or relevant years."},
+    {"id":"incomplete-profile","candidate":"incomplete","k":3,"grades":{"strong":0,"aliases":0,"transfer":0},"rationale":"An aspirational target role alone does not establish professional qualifications or justify a numerical score."}
+  ]
+}

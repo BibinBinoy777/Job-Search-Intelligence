@@ -1,0 +1,18 @@
+{
+  "tasks": {
+    "completed": 20
+  },
+  "worker_tick": "2026-10-29 14:44:05.601678+05:30",
+  "schedules": [
+    {
+      "enabled": false,
+      "hours": null
+    }
+  ],
+  "notifications": 0,
+  "api_ready": {
+    "status": "ready",
+    "database": "reachable",
+    "migration": "0006_automation"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "genuine_jobs": 80,
+  "job_ids_and_source_content_signatures_preserved": true,
+  "structured_analyses_reproduced": 80,
+  "stored_assessments_replayed_exactly": 80,
+  "source_skill_evidence_spans_verified": 203,
+  "classified_skill_totals": {
+    "required_skills": 61,
+    "preferred_skills": 13,
+    "incidental_skills": 60
+  },
+  "operational_table_counts_before_cleanup": {
+    "jobs": 80,
+    "saved_jobs": 0,
+    "applications": 0,
+    "application_events": 0,
+    "ingestion_runs": 4,
+    "ingestion_records": 160
+  },
+  "operational_table_counts_after_cleanup": {
+    "jobs": 80,
+    "saved_jobs": 0,
+    "applications": 0,
+    "application_events": 0,
+    "ingestion_runs": 4,
+    "ingestion_records": 160
+  },
+  "temporary_synthetic_private_QA_account_removed": true,
+  "no_original_candidate_records_removed": true,
+  "public_requirement_cache_retained": 80,
+  "all_extracted_requirement_evidence_spans_verified": 269
+}

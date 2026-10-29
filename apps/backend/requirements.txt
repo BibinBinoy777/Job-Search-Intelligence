@@ -1,0 +1,14 @@
+fastapi>=0.121,<1
+uvicorn>=0.34,<1
+sqlalchemy>=2.0,<2.1
+alembic>=1.14,<2
+psycopg[binary]>=3.2,<4
+pydantic-settings>=2.7,<3
+email-validator>=2.2,<3
+pwdlib[argon2]>=0.2,<1
+pytest>=8,<10
+httpx>=0.28,<1
+httpx2>=2,<3
+ruff>=0.9,<1
+pypdf>=6.21.3,<7
+defusedxml>=0.7.1,<1

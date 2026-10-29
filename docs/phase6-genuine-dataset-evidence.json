@@ -1,0 +1,26 @@
+{
+  "observed_at_utc": "2026-10-29T03:11:38.577631+00:00",
+  "mode": "read-only genuine stored listing analysis; no candidate created",
+  "stored_records": 80,
+  "eligible_records": 0,
+  "excluded_unavailable": 80,
+  "unique_examined_listings": 0,
+  "exact_duplicates_excluded": 0,
+  "recognized_skills": 0,
+  "denominators_checked": true,
+  "requirement_support_items_checked": 0,
+  "source_span_check_status": "not applicable: no eligible sample",
+  "sources": [],
+  "locations": [],
+  "publication_range": {
+    "earliest": null,
+    "latest": null,
+    "unknown_count": 0
+  },
+  "top_sample_skills": [],
+  "limitations": [
+    "No real candidate profile exists in this development baseline, so personalized real-world recommendation quality was not evaluated.",
+    "Synthetic rubric/integration/browser tests establish local behavior, not real-world career or labor-market accuracy.",
+    "Existing availability evidence was read as-is; no source verification dates were renewed."
+  ]
+}
