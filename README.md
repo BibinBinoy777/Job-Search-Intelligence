@@ -1,6 +1,6 @@
 # Job Search Intelligence
 
-Locally verified through Phase 7. This repository contains source, migrations and explicitly synthetic test fixtures. It excludes the local runtime database, candidate records, uploaded resumes and credentials, and is not a production deployment. Fresh installations start empty; collect jobs using the documented authorized ingestion workflow. Reported job counts and eligibility are dated local observations.
+Phases 1–7 are locally verified; Phase 8A results are recorded in docs/phase8a-validation.md. This repository contains source, migrations and explicitly synthetic test fixtures. It excludes the local runtime database, candidate records, uploaded resumes and credentials, and is not a production deployment. Fresh installations start empty; collect jobs using the documented authorized ingestion workflow. Reported job counts and eligibility are dated local observations.
 
 A personal career workspace for profiles, genuine jobs, evidence-based recommendations, saves and application progress. Phase 7 extends the existing modular monolith: React/TypeScript/Vite frontend, Python/FastAPI services, SQLAlchemy and PostgreSQL, with Alembic migrations.
 
@@ -232,3 +232,12 @@ Candidates explicitly enable job alerts in Notifications, then create separate f
 `AUTOMATION_ENABLED=true` enables downstream task/delivery processing. Source schedules have independent enablement. Optional SMTP requires `SMTP_HOST` and validated `SMTP_SENDER`; `SMTP_PORT=587` uses mandatory STARTTLS. `SMTP_USERNAME`/secret `SMTP_PASSWORD` are optional authentication settings. `APP_BASE_URL` defaults to `http://127.0.0.1:5173`; production SMTP requires an HTTPS origin. Without provider configuration, email stays unavailable and in-app still works. See `.env.example`; never place secrets in frontend variables.
 
 Run the full backend tests with `python -m pytest -q` in `apps/backend`, frontend tests/build with `npm test` and `npm run build` in `apps/frontend`, and `scripts/browser-tests.ps1 -Python <python.exe>` from the root. Backend/browser fixture guards require separate `_test`/`_browser` databases. SMTP tests are mocks; no real email delivery is claimed. Review current results and live dataset eligibility in the dated Phase 7 report. Production supervision, HTTPS, backup/recovery validation and unattended monitoring remain Phase 8.
+
+
+## Phase 8A local operations
+
+See [startup/supervision](docs/local-operations.md), [backup/restore and DPAPI](docs/backup-recovery.md), [account security/export/deletion](docs/account-security.md), [file boundary](docs/file-security.md), [monitoring](docs/monitoring.md), and [deployment/migration preparation](docs/deployment-preparation.md). Account controls are at `/account`; sign-in includes local recovery confirmation. SMTP recovery delivery and malware scanning remain unconfigured.
+
+Build the frontend, then use `scripts/start-local.ps1` with explicit Python/server-bin/existing-data-directory paths. Startup never resets or seeds data. Only explicit `-Migrate` applies migrations. `scripts/stop-local.ps1` drains application processes and leaves PostgreSQL running. Native backup/restore commands use `python -m app.operations.cli` from apps/backend, with an explicit PostgreSQL client-bin path and private backup destination. Source schedules remain opt-in.
+
+Operational tests use the guarded disposable `_test` database. Set `JSI_PG_BIN` to a native PostgreSQL 18 client-bin directory before `python -m pytest -q` to execute actual backup/restore tests; without it those tool-dependent cases explicitly skip. DPAPI tests run only on Windows. Run `npm test -- --maxWorkers=1`, `npm run build` and the existing browser launcher for frontend checks. Dated exact results and restore measurements are in the Phase 8A report. No public hosting/domain, real email delivery or unattended production supervision is implied.

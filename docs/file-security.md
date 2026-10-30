@@ -1,0 +1,9 @@
+# File-processing boundary
+
+Existing file size, MIME/signature, PDF page/text, DOCX expansion/entry/active-content, per-profile quota and ownership checks remain. Private generated references are never public static paths. Parsing runs in a separate isolated-mode Python process with a disposable working directory and restricted environment. Backend database/API/SMTP credentials are not inherited. Only required Windows system variables and disposable TEMP/TMP are passed. Bounded stdin carries documents; raw contents and parser stderr are excluded from logs. Existing Windows Job Object memory/process limits (or Unix resource limits), two-parser per-process capacity and wall timeout remain.
+
+Python socket APIs are disabled in the bootstrap. This blocks implemented Python network access and document-linked fetches, but is not an OS firewall or a sandbox against a native exploit. Parsing still uses the same OS account, trusted code/libraries and no dedicated restricted filesystem token. Public Phase 8B uploads need stronger service-account/container isolation, denied network and minimal filesystem access. Docker is not mandatory locally and no unsupported sandbox claim is made.
+
+Temporary working directories are removed after normal completion, parser failure and timeout. A host crash can leave a jsi-parser-* directory in the system temporary root. An operator may remove only a verified inactive parser orphan; no broad temporary-directory deletion occurs. Referenced-document backups exclude parser temp files. Private original deletion retains durable tombstone/retry semantics.
+
+Malware scanning is not configured. Format validation, successful parsing and Python socket denial do not establish malware safety. Windows POSIX mode bits do not establish production ACL isolation; configure private service-account ACLs and a scanning policy before public intake.

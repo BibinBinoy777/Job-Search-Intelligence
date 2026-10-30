@@ -1,0 +1,152 @@
+{
+  "method": "Read-only original-column hashes against pre-Phase8A baseline",
+  "tables": {
+    "job_requirement_analyses": {
+      "count": 80,
+      "all_original_values_preserved": true
+    },
+    "duplicate_candidates": {
+      "count": 0,
+      "all_original_values_preserved": true
+    },
+    "ingestion_records": {
+      "count": 180,
+      "all_original_values_preserved": true
+    },
+    "matching_refreshes": {
+      "count": 0,
+      "all_original_values_preserved": true
+    },
+    "ingestion_runs": {
+      "count": 5,
+      "all_original_values_preserved": true
+    },
+    "jobs": {
+      "count": 100,
+      "all_original_values_preserved": true
+    },
+    "users": {
+      "count": 0,
+      "all_original_values_preserved": true
+    },
+    "audit_events": {
+      "count": 33,
+      "all_original_values_preserved": true
+    },
+    "auth_sessions": {
+      "count": 0,
+      "all_original_values_preserved": true
+    },
+    "candidate_profiles": {
+      "count": 0,
+      "all_original_values_preserved": true
+    },
+    "candidate_education": {
+      "count": 0,
+      "all_original_values_preserved": true
+    },
+    "applications": {
+      "count": 0,
+      "all_original_values_preserved": true
+    },
+    "job_sources": {
+      "count": 1,
+      "all_original_values_preserved": true
+    },
+    "candidate_experience": {
+      "count": 0,
+      "all_original_values_preserved": true
+    },
+    "candidate_skills": {
+      "count": 0,
+      "all_original_values_preserved": true
+    },
+    "job_skills": {
+      "count": 0,
+      "all_original_values_preserved": true
+    },
+    "saved_jobs": {
+      "count": 0,
+      "all_original_values_preserved": true
+    },
+    "application_events": {
+      "count": 0,
+      "all_original_values_preserved": true
+    },
+    "candidate_preferences": {
+      "count": 0,
+      "all_original_values_preserved": true
+    },
+    "saved_searches": {
+      "count": 0,
+      "all_original_values_preserved": true
+    },
+    "match_results": {
+      "count": 0,
+      "all_original_values_preserved": true
+    },
+    "resumes": {
+      "count": 0,
+      "all_original_values_preserved": true
+    },
+    "automation_heartbeat": {
+      "count": 1,
+      "exception": "expected running-worker timestamp advances"
+    },
+    "resume_versions": {
+      "count": 0,
+      "all_original_values_preserved": true
+    },
+    "resume_extractions": {
+      "count": 0,
+      "all_original_values_preserved": true
+    },
+    "resume_confirmations": {
+      "count": 0,
+      "all_original_values_preserved": true
+    },
+    "resume_proposals": {
+      "count": 0,
+      "all_original_values_preserved": true
+    },
+    "notification_preferences": {
+      "count": 0,
+      "all_original_values_preserved": true
+    },
+    "job_events": {
+      "count": 20,
+      "all_original_values_preserved": true
+    },
+    "alert_subscriptions": {
+      "count": 0,
+      "all_original_values_preserved": true
+    },
+    "application_reminders": {
+      "count": 0,
+      "all_original_values_preserved": true
+    },
+    "automation_tasks": {
+      "count": 20,
+      "all_original_values_preserved": true
+    },
+    "notifications": {
+      "count": 0,
+      "all_original_values_preserved": true
+    },
+    "notification_outbox": {
+      "count": 0,
+      "all_original_values_preserved": true
+    },
+    "notification_attempts": {
+      "count": 0,
+      "all_original_values_preserved": true
+    }
+  },
+  "migration": "0007_local_operations",
+  "all_100_job_ids_preserved": true,
+  "original_80_ids_preserved": true,
+  "stored_jobs": 100,
+  "new_recovery_token_rows": 0,
+  "database_reset": false,
+  "eligible_jobs_at_check": 0
+}

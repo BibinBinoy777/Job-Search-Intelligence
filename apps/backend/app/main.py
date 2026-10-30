@@ -10,11 +10,14 @@ from sqlalchemy import text
 from sqlalchemy.exc import IntegrityError, SQLAlchemyError
 from sqlalchemy.orm.exc import StaleDataError
 from starlette.exceptions import HTTPException
+from starlette.middleware.trustedhost import TrustedHostMiddleware
 
+from app.api.accounts import router as accounts_router
 from app.api.automation import router as automation_router
 from app.api.career import router as career_router
 from app.api.ingestion import router as ingestion_router
 from app.api.matching import router as matching_router
+from app.api.operations import router as operations_router
 from app.api.resumes import router as resumes_router
 from app.api.routes import router
 from app.api.search import router as search_router
@@ -30,6 +33,7 @@ app = FastAPI(
     version="0.7.0",
     description="Phase 7: evidence-backed career gaps, roles, paths and learning with scoped market statistics; existing discovery, matching and private resume review. No automated applications.",
 )
+app.add_middleware(TrustedHostMiddleware, allowed_hosts=settings.trusted_hosts)
 app.add_middleware(ResumeBodyLimit)
 app.add_middleware(
     CORSMiddleware,
@@ -144,7 +148,7 @@ def ready():
     try:
         with engine.connect() as connection:
             revision = connection.execute(text("SELECT version_num FROM alembic_version")).scalar()
-            if revision != "0006_automation":
+            if revision != "0007_local_operations":
                 return JSONResponse(
                     status_code=503,
                     content={
@@ -175,3 +179,7 @@ app.include_router(search_router)
 app.include_router(router)
 app.include_router(ingestion_router)
 app.include_router(matching_router)
+
+app.include_router(accounts_router)
+
+app.include_router(operations_router)

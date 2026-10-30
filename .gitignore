@@ -35,3 +35,8 @@ htmlcov/
 .mypy_cache/
 .cache/
 docs/*.png
+
+# Local recovery artifacts
+*.dpapi
+backups/
+recovery-token*

@@ -24,6 +24,9 @@ import ProfilePage from "../features/candidate-profile/Profile";
 import JobsPage, { JobDetailPage } from "../features/job-discovery/Jobs";
 import SavedPage from "../features/saved-jobs/Saved";
 import ApplicationsPage from "../features/applications/Applications";
+import AccountSecurity, {
+  RecoveryPage,
+} from "../features/settings/AccountSecurity";
 import SettingsPage from "../features/settings/Settings";
 import SourcesPage from "../features/job-discovery/Sources";
 import ComparisonPage from "../features/job-discovery/Comparison";
@@ -50,11 +53,13 @@ const links = [
   ["/profile", "My profile", UserRound],
   ["/resumes", "Resume intelligence", BriefcaseBusiness],
   ["/settings", "Settings", Settings2],
+  ["/account", "Account security", UserRound],
 ] as const;
 
 function AuthPage() {
   const client = useQueryClient();
   const [register, setRegister] = useState(false);
+  const [recovering, setRecovering] = useState(false);
   const [error, setError] = useState<unknown>(null);
   const [busy, setBusy] = useState(false);
   async function submit(event: React.FormEvent<HTMLFormElement>) {
@@ -114,32 +119,36 @@ function AuthPage() {
             ? "Create an account to begin building your candidate profile."
             : "Sign in to pick up your job search where you left off."}
         </p>
-        <form onSubmit={submit}>
-          <Field label="Email address">
-            <input
-              name="email"
-              type="email"
-              autoComplete="email"
-              required
-              maxLength={320}
-            />
-          </Field>
-          <Field label="Password" hint="Use 12–128 characters.">
-            <input
-              name="password"
-              type="password"
-              autoComplete={register ? "new-password" : "current-password"}
-              required
-              minLength={12}
-              maxLength={128}
-            />
-          </Field>
-          {error !== null && <ErrorBox error={error} />}
-          <button className="primary wide" disabled={busy}>
-            {busy ? "Please wait…" : register ? "Create account" : "Sign in"}
-            <ArrowRight size={17} />
-          </button>
-        </form>
+        {recovering ? (
+          <RecoveryPage />
+        ) : (
+          <form onSubmit={submit}>
+            <Field label="Email address">
+              <input
+                name="email"
+                type="email"
+                autoComplete="email"
+                required
+                maxLength={320}
+              />
+            </Field>
+            <Field label="Password" hint="Use 12–128 characters.">
+              <input
+                name="password"
+                type="password"
+                autoComplete={register ? "new-password" : "current-password"}
+                required
+                minLength={12}
+                maxLength={128}
+              />
+            </Field>
+            {error !== null && <ErrorBox error={error} />}
+            <button className="primary wide" disabled={busy}>
+              {busy ? "Please wait…" : register ? "Create account" : "Sign in"}
+              <ArrowRight size={17} />
+            </button>
+          </form>
+        )}
         <button
           className="text-button auth-switch"
           onClick={() => {
@@ -150,6 +159,12 @@ function AuthPage() {
           {register
             ? "Already have an account? Sign in"
             : "New here? Create an account"}
+        </button>
+        <button
+          className="text-button"
+          onClick={() => setRecovering(!recovering)}
+        >
+          {recovering ? "Return to sign in" : "Recover my account"}
         </button>
         <p className="small muted">
           Your account uses a private server-side session. Job-source listings
@@ -295,6 +310,7 @@ export default function App() {
             <Route path="/jobs/:id" element={<JobDetailPage />} />
             <Route path="/saved" element={<SavedPage />} />
             <Route path="/applications" element={<ApplicationsPage />} />
+            <Route path="/account" element={<AccountSecurity />} />
             <Route path="/settings" element={<SettingsPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>

@@ -124,6 +124,9 @@ def claim_task():
 
 def process_task(claim):
     task_id, lease = claim
+    from app.operations.worker_health import record
+
+    record(status="running", current_task=task_id)
     try:
         with SessionLocal.begin() as db:
             task = db.scalar(
@@ -147,6 +150,7 @@ def process_task(claim):
                 task.finished_at = utcnow()
             elif not outcome.get("preferences_paused") and not outcome.get("not_due"):
                 task.due_at = utcnow()
+        record(status="running", current_task=None, last_successful_task=task_id)
         return True
     except Exception as exc:
         from sqlalchemy.exc import SQLAlchemyError

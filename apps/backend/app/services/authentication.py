@@ -65,7 +65,7 @@ def login(db, data, peer):
     throttle("login:" + peer)
     user = db.scalar(select(User).where(User.email == str(data.email).lower()))
     valid = password_hash.verify(data.password, user.password_hash if user else _dummy_hash)
-    if not user or not valid:
+    if not user or not valid or user.deletion_pending:
         raise HTTPException(401, "Invalid email or password")
     audit(db, user.id, "auth.login", user.id)
     return user, start_session(db, user)
@@ -78,7 +78,7 @@ def authenticate(db, token):
     if session is None or session.expires_at <= utcnow():
         raise HTTPException(401, "Session expired. Sign in again")
     user = db.get(User, session.user_id)
-    if user is None:
+    if user is None or user.deletion_pending:
         raise HTTPException(401, "Session is no longer valid")
     return user
 

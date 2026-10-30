@@ -1,0 +1,26 @@
+{
+  "plain_restore": {
+    "backup_id": "20261030T022450-46549887050f405b962e7e760d883408",
+    "status": "verified",
+    "database": "jsi_restore_5bc5a43d14ff4eb390f4369ab0337a33_restore_test",
+    "documents": 0,
+    "table_count": 37,
+    "duration_seconds": 2.469,
+    "all_original_values_preserved": true
+  },
+  "encryption": {
+    "encrypted": true,
+    "scope": "same Windows user/profile; not a portable off-host recovery guarantee",
+    "plaintext_original_retained": true
+  },
+  "encrypted_copy_restore": {
+    "backup_id": "20261030T022450-46549887050f405b962e7e760d883408",
+    "status": "verified",
+    "database": "jsi_restore_9bb8ca5579d145d68492e40bbef640d8_restore_test",
+    "documents": 0,
+    "table_count": 37,
+    "duration_seconds": 2.36,
+    "all_original_values_preserved": true
+  },
+  "encryption_scheme": "Windows DPAPI current user; same-profile recovery tested; portable key recovery not qualified"
+}

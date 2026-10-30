@@ -26,6 +26,11 @@ export default function AutomationOperations({
   const client = useQueryClient();
   const [page, setPage] = useState(1);
   const [notice, setNotice] = useState("");
+  const localHealth = useQuery({
+    queryKey: ["operations-health"],
+    queryFn: () => api<Record<string, unknown>>("/operations/health"),
+    refetchInterval: 30000,
+  });
   const status = useQuery({
     queryKey: ["automation-status"],
     queryFn: () => api<AutomationStatus>("/automation/status"),
@@ -71,6 +76,16 @@ export default function AutomationOperations({
   return (
     <section className="panel form-panel">
       <h2>Operator automation controls</h2>
+      <h3>Local operational readiness</h3>
+      {localHealth.isPending ? (
+        <Loading />
+      ) : localHealth.error ? (
+        <ErrorBox error={localHealth.error} />
+      ) : (
+        <pre className="automation-json">
+          {JSON.stringify(localHealth.data, null, 2)}
+        </pre>
+      )}
       {status.isPending ? (
         <Loading />
       ) : status.error ? (

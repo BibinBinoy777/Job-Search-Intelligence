@@ -2,8 +2,10 @@
 
 import argparse
 import json
+import os
 import time
 from datetime import timedelta
+from pathlib import Path
 
 from sqlalchemy import select
 
@@ -105,6 +107,8 @@ def main():
     worker = commands.add_parser("worker")
     worker.add_argument("--once", action="store_true")
     worker.add_argument("--schedule", action="store_true")
+    worker.add_argument("--stop-file", type=Path)
+    worker.add_argument("--runtime-state", type=Path)
     recovery = commands.add_parser("recover")
     recovery.add_argument("--run-id", required=True)
     promote = commands.add_parser("promote")
@@ -147,16 +151,26 @@ def main():
                 )
             )
     elif args.command == "worker":
-        while True:
+        from app.operations.worker_health import record
+
+        if args.runtime_state:
+            os.environ["JSI_WORKER_STATE_PATH"] = str(args.runtime_state)
+        record(status="starting", current_task=None)
+        while not (args.stop_file and args.stop_file.exists()):
             from app.modules.automation.sources import coordinate_sources
             from app.modules.automation.worker import background_once
 
+            record(status="running", current_task="source_coordination")
             coordinate_sources()
+            record(status="running", current_task="source_sync")
             work_once(args.schedule)
+            record(status="running", current_task="automation_pass")
             background_once()
+            record(status="idle", current_task=None)
             if args.once:
                 break
             time.sleep(5)
+        record(status="stopped", current_task=None)
     elif args.command == "recover":
         recover(args.run_id)
         print("Run marked interrupted; committed page checkpoints and jobs were preserved.")

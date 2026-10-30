@@ -7,11 +7,15 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
-        env_file=Path(__file__).resolve().parents[4] / ".env", extra="ignore"
+        env_file=Path(__file__).resolve().parents[4] / ".env",
+        extra="ignore",
+        hide_input_in_errors=True,
     )
     database_url: str = "postgresql+psycopg://localhost/job_search"
     app_env: Literal["development", "test", "production"] = "development"
     allowed_origins: list[str] = ["http://localhost:5173", "http://127.0.0.1:5173"]
+    trusted_hosts: list[str] = ["localhost", "127.0.0.1", "testserver"]
+    debug: bool = False
     cookie_secure: bool = False
     allow_registration: bool = True
     session_hours: int = 12
@@ -60,6 +64,26 @@ class Settings(BaseSettings):
         if not 1 <= self.session_hours <= 48:
             raise ValueError("SESSION_HOURS must be between 1 and 48")
         if self.app_env == "production":
+            from sqlalchemy.engine import make_url
+
+            credentials = make_url(self.database_url)
+            if self.debug or base.scheme != "https":
+                raise ValueError("Production requires debug disabled and HTTPS APP_BASE_URL")
+            if not self.trusted_hosts or any(
+                "*" in h or h in {"localhost", "127.0.0.1", "testserver"}
+                for h in self.trusted_hosts
+            ):
+                raise ValueError("Production requires explicit public trusted hosts")
+            if (
+                not credentials.password
+                or len(credentials.password) < 12
+                or credentials.password.lower() in {"password12345", "changeme12345"}
+            ):
+                raise ValueError("Production requires a configured strong database credential")
+            root = self.resume_storage_root.expanduser().resolve()
+            project = Path(__file__).resolve().parents[4]
+            if root.is_relative_to(project):
+                raise ValueError("Production resume storage must be outside project/web roots")
             if (
                 not self.cookie_secure
                 or not self.allowed_origins

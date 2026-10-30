@@ -1,0 +1,22 @@
+{
+  "status": "verified",
+  "documents": 1,
+  "valid_synthetic_pdf_checksum_matches": true,
+  "all_table_values_preserved": true,
+  "duration_seconds": 2.282,
+  "representative_rows": {
+    "users": 1,
+    "applications": 1,
+    "application_events": 1,
+    "saved_jobs": 1,
+    "saved_searches": 1,
+    "match_results": 2,
+    "resumes": 1,
+    "resume_versions": 1,
+    "alert_subscriptions": 1,
+    "application_reminders": 1,
+    "notifications": 1,
+    "notification_outbox": 1,
+    "notification_attempts": 1
+  }
+}

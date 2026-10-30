@@ -1,0 +1,50 @@
+{
+  "verified_date_local": "2026-10-30",
+  "combined_backend": {
+    "passed": 301,
+    "failed": 0,
+    "skipped": 0,
+    "prior_phases": 280,
+    "phase8a_new": 21
+  },
+  "followup_after_final_small_changes": {
+    "passed": 4,
+    "failed": 0,
+    "skipped": 0,
+    "overlaps_combined_suite": true,
+    "scope": [
+      "valid PDF backup/restore fixture",
+      "configuration-error input redaction",
+      "pending deletion retry",
+      "unauthenticated export rejection"
+    ]
+  },
+  "frontend": {
+    "passed": 56,
+    "failed": 0,
+    "skipped": 0,
+    "workers": 1
+  },
+  "browser": {
+    "passed": 9,
+    "failed": 0,
+    "skipped": 0,
+    "engine": "Chromium"
+  },
+  "build_types_lint_format_schema": "passed",
+  "populated_0006_to_0007_downgrade_reupgrade": "passed in isolated database",
+  "genuine_jobs_preserved": 100,
+  "original_80_ids_preserved": true,
+  "eligible_genuine_jobs_final_check": 0,
+  "source_refresh_performed": false,
+  "npm_vulnerabilities": 0,
+  "python_vulnerabilities": 0,
+  "python_packages_audited": 45,
+  "python_audit_skips": 0,
+  "secret_scan": "Gitleaks; one reviewed pre-existing synthetic role/date false positive, no real secrets",
+  "encryption": "DPAPI same Windows account encrypt/decrypt/full restore passed; plaintext original retained; portable profile/key recovery not qualified",
+  "parser_isolation": "separate bounded process, restricted environment and temporary directory; Python socket denial; not an OS network sandbox",
+  "production_claims": false,
+  "local_acceptance": "passed with documented environment and security boundaries",
+  "phase8b_started": false
+}

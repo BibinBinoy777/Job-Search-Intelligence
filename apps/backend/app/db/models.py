@@ -43,6 +43,7 @@ class Timestamps:
 
 class User(Identity, Timestamps, Base):
     __tablename__ = "users"
+    deletion_pending: Mapped[bool] = mapped_column(Boolean, default=False, server_default="false")
     email: Mapped[str] = mapped_column(String(320), unique=True)
     password_hash: Mapped[str] = mapped_column(Text)
     is_operator: Mapped[bool] = mapped_column(Boolean, default=False, server_default="false")
@@ -713,3 +714,10 @@ class ResumeConfirmation(Identity, Base):
     request_fingerprint: Mapped[str] = mapped_column(String(64))
     result: Mapped[dict] = mapped_column(JSON)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
+
+
+class RecoveryToken(Base):
+    __tablename__ = "recovery_tokens"
+    token_hash: Mapped[str] = mapped_column(String(64), primary_key=True)
+    user_id: Mapped[str] = mapped_column(ForeignKey("users.id", ondelete="CASCADE"), index=True)
+    expires_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), index=True)

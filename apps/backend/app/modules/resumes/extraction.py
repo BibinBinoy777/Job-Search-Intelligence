@@ -1,7 +1,9 @@
 import base64
 import json
+import os
 import subprocess
 import sys
+import tempfile
 import threading
 from pathlib import Path
 
@@ -25,15 +27,30 @@ def parse_document(content, kind, validate_only=False):
             "max_sections": settings.resume_max_sections,
         }
         try:
-            result = subprocess.run(
-                [sys.executable, "-m", "app.modules.resumes.worker"],
-                input=json.dumps(request).encode(),
-                stdout=subprocess.PIPE,
-                stderr=subprocess.DEVNULL,
-                timeout=settings.resume_parser_timeout_seconds,
-                cwd=Path(__file__).resolve().parents[3],
-                check=False,
-            )
+            with tempfile.TemporaryDirectory(prefix="jsi-parser-") as temporary:
+                backend = str(Path(__file__).resolve().parents[3])
+                bootstrap = (
+                    "import sys,socket,runpy;sys.path.insert(0," + repr(backend) + ");"
+                    "socket.socket=lambda *a,**k:(_ for _ in ()).throw(PermissionError('network_disabled'));"
+                    "socket.create_connection=socket.socket;"
+                    "runpy.run_module('app.modules.resumes.worker',run_name='__main__')"
+                )
+                environment = {
+                    key: os.environ[key] for key in ["SYSTEMROOT", "WINDIR"] if key in os.environ
+                }
+                environment.update(
+                    {"TEMP": temporary, "TMP": temporary, "PYTHONIOENCODING": "utf-8"}
+                )
+                result = subprocess.run(
+                    [sys.executable, "-I", "-c", bootstrap],
+                    input=json.dumps(request).encode(),
+                    stdout=subprocess.PIPE,
+                    stderr=subprocess.DEVNULL,
+                    timeout=settings.resume_parser_timeout_seconds,
+                    cwd=temporary,
+                    env=environment,
+                    check=False,
+                )
         except subprocess.TimeoutExpired:
             raise ResumeError("parser_timeout") from None
         except OSError:
